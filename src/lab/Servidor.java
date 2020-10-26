@@ -51,7 +51,7 @@ public class Servidor {
                 //creo el datagrama
                 DatagramPacket respuesta = new DatagramPacket(buffer, buffer.length, direccion, puertoCliente);
  
-                //Envio la información
+                //Envio la informacion
                 System.out.println("Envio la informacion del cliente");
                 socketUDP.send(respuesta);
                  
