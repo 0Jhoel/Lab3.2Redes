@@ -45,7 +45,7 @@ public class Servidor {
                 int puertoCliente = peticion.getPort();
                 InetAddress direccion = peticion.getAddress();
  
-                mensaje = "¡Hola mundo desde el servidor!";
+                mensaje = "Hola mundo desde el servidor!";
                 buffer = mensaje.getBytes();
  
                 //creo el datagrama
