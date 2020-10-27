@@ -53,7 +53,7 @@ public class Maestro {
 	public static void main(String[] args)throws Exception {
 		server= new ThreadedUDPServer(1338);
 		Scanner in = new Scanner(System.in);
-		System.out.println("¿A cuantos clientes desea enviar el archivo?");
+		System.out.println("A cuantos clientes desea enviar el archivo:");
 		int clientes= in.nextInt();
 		String archivo;
 		System.out.println("Elija un archivo para enviar (1 o 2):");
