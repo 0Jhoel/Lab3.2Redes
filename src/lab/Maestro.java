@@ -27,10 +27,6 @@ import org.bouncycastle.util.encoders.Hex;
 import data.Packet;
 import data.PacketHandler;
 
-
-
-
-
 /**
  * @author user
  *
@@ -97,8 +93,6 @@ public class Maestro {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-
-
 
 
 							FileInputStream fis = new FileInputStream(sendFile);
