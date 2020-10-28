@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="udp_archivos/src"/>
+	<classpathentry kind="lib" path="udp_archivos/Lab3.2.jar"/>
+	<classpathentry kind="lib" path="udp_archivos/lib/bcpkix-jdk15on-161.jar"/>
+	<classpathentry kind="lib" path="udp_archivos/lib/bcprov-jdk15on-161.jar"/>
+	<classpathentry kind="lib" path="udp_archivos/lib/javax.xml.bind.jar"/>
+	<classpathentry kind="output" path="udp_archivos/src"/>
+</classpath>
