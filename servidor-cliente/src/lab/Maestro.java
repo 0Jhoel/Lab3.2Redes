@@ -44,6 +44,7 @@ public class Maestro {
 	public static String ruta = "./data/log_";
 	private static ThreadedUDPServer server;
 	public static String send="";
+	public static long diff = 0;
 	/**
 	 * @param args
 	 */
@@ -59,6 +60,10 @@ public class Maestro {
 		System.out.println("1.Archivo de texto 250MB");
 		System.out.println("2.Archivo de texto 100MB");
 		archivo = in.nextLine();
+		
+		String tim = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss").format(Calendar.getInstance().getTime());
+		ruta+= tim + ".txt";
+		
 		server.receive(new PacketHandler() {
 
 			@Override
@@ -66,7 +71,6 @@ public class Maestro {
 				String data = new String(packet.getData()).trim();
 				Date t1 = Calendar.getInstance().getTime();
 				String time = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss").format(Calendar.getInstance().getTime());
-				ruta+= time + ".txt";
 				log+=time+"\n";
 
 				if(data.equals("Preparado")) {
@@ -129,11 +133,13 @@ public class Maestro {
 					log+="Estado: "+data;
 				}
 				Date t2 = Calendar.getInstance().getTime();
-				log(t1, t2);
+				 diff = t2.getTime()-t1.getTime();
 			}
-
+			
 		});
 
+		
+		log(diff);
 	}
 
 	public static void reply(Packet packet) {
@@ -156,10 +162,10 @@ public class Maestro {
 			e.printStackTrace();
 		}
 	}
-	public static synchronized void log(Date t1, Date t2) {
+	public static void log(long diff) {
 		try {
-			long diff = t2.getTime()-t1.getTime();
-			log="Tiempo de envío: "+(diff / (1000 * 60 * 60 * 24))+"\r\n";
+			System.out.println(log);
+			log+="Tiempo de envío: "+(diff / (1000 * 60 * 60 * 24))+"\r\n";
 			log+="Archivo recibido exitosamente \r\n";
 			FileWriter fw1 = new FileWriter(new File(ruta),true);
 			fw1.write(log + "\r");
